@@ -7,10 +7,10 @@ const Artista = require('../models/artista.model')
 router.post('/registrar-artista', (req, res) => {
     let artista = JSON.parse(req.body.obj);
     let nuevo_artista = new Artista({
-        nombre: obj_artista.nombre,
-        casa_disquera: obj_artista.casa_disquera,
-        nacimiento: obj_artista.nacimiento,
-        edad: obj_artista.edad
+        nombre: artista.nombre,
+        casa_disquera: artista.casa_disquera,
+        nacimiento: artista.nacimiento,
+        edad: artista.edad
     });
     artista.lista_caciones.forEach(cancion => {
         nuevo_artista.lista_caciones.push(cancion._id)
