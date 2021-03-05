@@ -9,7 +9,7 @@ router.post('/registrar-usuario', (req, res) => {
         nacimiento: obj_usuario.nacimiento,
         correo: obj_usuario.correo,
         genero: obj_usuario.genero,
-        contraseña: obj_usuario.contraseña
+        contrasenna: obj_usuario.contrasenna
     });
     /*
         obj_usuario.lista_listas.forEach(lista => {

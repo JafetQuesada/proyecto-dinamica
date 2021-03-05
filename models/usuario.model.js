@@ -6,7 +6,7 @@ const schema_usuario = mongoose.Schema({
     nacimiento: { type: String, required: true, unique: false },
     correo: { type: String, required: true, unique: true },
     genero: { type: String, required: true, unique: false },
-    contraseña: { type: String, required: true, unique: false },
+    contrasenna: { type: String, required: true, unique: false },
     lista_listas: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Listas'
