@@ -7,7 +7,7 @@ router.post('/registrar-album', (req, res) => {
     let album = new Album({
         codigo: obj_album.codigo,
         nombre: obj_album.nombre,
-        lanzamiento: obj_album.album,
+        lanzamiento: obj_album.lanzamiento,
         cant_canciones: obj_album.cant_canciones,
         duracion: obj_album.duracion
     });
