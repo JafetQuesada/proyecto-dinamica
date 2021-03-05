@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Album = require('../models/artista.model')
+const Album = require('../models/album.model');
 
 router.post('/registrar-artista', (req, res) => {
     let obj_album = JSON.parse(req.body.obj);
