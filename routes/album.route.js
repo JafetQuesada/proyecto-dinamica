@@ -11,9 +11,9 @@ router.post('/registrar-artista', (req, res) => {
         cant_canciones: obj_album.cant_canciones,
         duracion: obj_album.duracion
     });
-    obj_album.lista_canciones.forEach(cancion => {
+    /*obj_album.lista_canciones.forEach(cancion => {
         album.lista_canciones.push(cancion._id);
-    });
+    });*/
     album.save((err, album) => {
         if (err) {
             res.json({

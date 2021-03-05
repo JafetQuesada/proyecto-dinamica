@@ -11,12 +11,13 @@ router.post('/registrar-usuario', (req, res) => {
         genero: obj_usuario.genero,
         contraseña: obj_usuario.contraseña
     });
-    obj_usuario.lista_listas.forEach(lista => {
-        nuevo_usuario.lista_listas.push(lista._id)
-    });
-    obj_usuario.canciones_favortias.forEach(cancion => {
-        nuevo_usuario.canciones_favortias.push(cancion._id)
-    });
+    /*
+        obj_usuario.lista_listas.forEach(lista => {
+            nuevo_usuario.lista_listas.push(lista._id)
+        });
+        obj_usuario.canciones_favortias.forEach(cancion => {
+            nuevo_usuario.canciones_favortias.push(cancion._id)
+        });*/
     nuevo_usuario.save((err, usuario) => {
         if (err) {
             res.json({
