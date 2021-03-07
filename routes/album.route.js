@@ -63,9 +63,7 @@ router.put('/modificar-album', (req, res) => {
         $set: {
             codigo: req.body.codigo,
             nombre: req.body.nombre,
-            lanzamiento: req.body.lanzamiento,
-            cant_canciones: req.body.cant_canciones,
-            duracion: req.body.duracion
+            lanzamiento: req.body.lanzamiento
         }
     }, (err, info) => {
         if (err) {

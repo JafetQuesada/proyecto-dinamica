@@ -58,9 +58,7 @@ router.put('/modificar-cancion', (req, res) => {
     Cancion.updateOne({ _id: req.body._id }, {
         $set: {
             nombre: req.body.nombre,
-            duracion: req.body.duracion,
-            artista: req.body.artista,
-            album: req.body.album
+            duracion: req.body.duracion
         }
     }, (err, info) => {
         if (err) {

@@ -9,7 +9,7 @@ router.post('/registrar-artista', (req, res) => {
     let nuevo_artista = new Artista({
         nombre: artista.nombre,
         casa_disquera: artista.casa_disquera,
-        nacimiento: artista.nacimiento,
+        nacimiento: artista.nacimiento.toLocaleDateString(),
         edad: artista.edad
     });
     /*
@@ -68,8 +68,7 @@ router.put('/modificar-artista', (req, res) => {
         $set: {
             nombre: req.body.nombre,
             casa_disquera: req.body.casa_disquera,
-            nacimiento: req.body.nacimiento,
-            edad: req.body.edad
+            nacimiento: req.body.nacimiento
         }
     }, (err, info) => {
         if (err) {
