@@ -64,11 +64,12 @@ router.get('/buscar-artista', (req, res) => {
 });
 
 router.put('/modificar-artista', (req, res) => {
-    Artista.updateOne({ _id: req.body._id }, {
+    let obj = JSON.parse(req.body.obj)
+    Artista.updateOne({ _id: obj._id }, {
         $set: {
-            nombre: req.body.nombre,
-            casa_disquera: req.body.casa_disquera,
-            nacimiento: req.body.nacimiento
+            nombre: obj.nombre,
+            casa_disquera: obj.casa_disquera,
+            nacimiento: obj.nacimiento
         }
     }, (err, info) => {
         if (err) {
