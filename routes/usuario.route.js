@@ -34,7 +34,7 @@ router.post('/registrar-usuario', (req, res) => {
 });
 
 router.get('/listar-usuarios', (req, res) => {
-    Usuario.find((err, lista) => {
+    Usuario.find.populate((err, lista) => {
         if (err) {
             res.json({
                 msj: 'No se encontraron usuarios',

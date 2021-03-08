@@ -30,7 +30,7 @@ router.post('/registrar-album', (req, res) => {
 });
 
 router.get('/listar-album', (req, res) => {
-    Album.find((err, lista) => {
+    Album.find.populate((err, lista) => {
         if (err) {
             res.json({
                 msj: 'No se encontraron albums',
