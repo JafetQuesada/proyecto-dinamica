@@ -9,7 +9,7 @@ router.post('/registrar-artista', (req, res) => {
     let nuevo_artista = new Artista({
         nombre: artista.nombre,
         casa_disquera: artista.casa_disquera,
-        nacimiento: artista.nacimiento.toLocaleDateString(),
+        nacimiento: artista.nacimiento,
         edad: artista.edad
     });
 
