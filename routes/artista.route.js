@@ -13,12 +13,12 @@ router.post('/registrar-artista', (req, res) => {
         edad: artista.edad
     });
 
-    artista.lista_caciones.forEach(cancion => {
-        nuevo_artista.lista_caciones.push(cancion._id)
-    });
-    artista.lista_albums.forEach(album => {
-        nuevo_artista.lista_albums.push(album._id)
-    });
+    /* artista.lista_caciones.forEach(cancion => {
+         nuevo_artista.lista_caciones.push(cancion._id)
+     });
+     artista.lista_albums.forEach(album => {
+         nuevo_artista.lista_albums.push(album._id)
+     });*/
     nuevo_artista.save((err, artista) => {
         if (err) {
             res.json({
