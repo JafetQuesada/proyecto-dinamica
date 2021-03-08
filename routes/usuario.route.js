@@ -63,13 +63,14 @@ router.get('/buscar-usuario', (req, res) => {
 });
 
 router.put('/modificar-usuario', (req, res) => {
-    Usuario.updateOne({ _id: req.body._id }, {
+    let obj = JSON.parse(req.body.obj)
+    Usuario.updateOne({ _id: obj._id }, {
         $set: {
-            nombre_completo: req.body.nombre_completo,
-            nacimiento: req.body.nacimiento,
-            correo: req.body.correo,
-            genero: req.body.genero,
-            contraseña: req.body.contraseña
+            nombre_completo: obj.nombre_completo,
+            nacimiento: obj.nacimiento,
+            correo: obj.correo,
+            genero: obj.genero,
+            contraseña: obj.contraseña
         }
     }, (err, info) => {
         if (err) {

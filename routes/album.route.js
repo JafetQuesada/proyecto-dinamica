@@ -59,11 +59,12 @@ router.get('/buscar-album', (req, res) => {
 });
 
 router.put('/modificar-album', (req, res) => {
-    Album.updateOne({ _id: req.body._id }, {
+    let obj = JSON.parse(req.body.obj)
+    Album.updateOne({ _id: obj._id }, {
         $set: {
-            codigo: req.body.codigo,
-            nombre: req.body.nombre,
-            lanzamiento: req.body.lanzamiento
+            codigo: obj.codigo,
+            nombre: obj.nombre,
+            lanzamiento: obj.lanzamiento
         }
     }, (err, info) => {
         if (err) {

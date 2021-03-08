@@ -55,10 +55,11 @@ router.get('/buscar-cancion', (req, res) => {
 });
 
 router.put('/modificar-cancion', (req, res) => {
-    Cancion.updateOne({ _id: req.body._id }, {
+    let obj = JSON.parse(req.body.obj)
+    Cancion.updateOne({ _id: obj._id }, {
         $set: {
-            nombre: req.body.nombre,
-            duracion: req.body.duracion
+            nombre: obj.nombre,
+            duracion: obj.duracion
         }
     }, (err, info) => {
         if (err) {
