@@ -27,7 +27,7 @@ router.post('/registrar-cancion', (req, res) => {
 });
 
 router.get('/listar-cancion', (req, res) => {
-    Cancion.find.populate((err, lista) => {
+    Cancion.find.populate('artista').exec((err, lista) => {
         if (err) {
             res.json({
                 msj: 'No se encontraron canciones',
