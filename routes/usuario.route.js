@@ -70,6 +70,7 @@ router.put('/modificar-usuario', (req, res) => {
             nacimiento: obj.nacimiento,
             correo: obj.correo,
             genero: obj.genero,
+            tipo: obj.tipo,
             contraseña: obj.contraseña
         }
     }, (err, info) => {
