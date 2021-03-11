@@ -21,6 +21,7 @@ router.post('/registrar-album', (req, res) => {
                 err
             });
         } else {
+            Cancion.updateMany({ album: album.nombre })
             res.json({
                 mjs: 'El album  se registro correctamente',
                 album
