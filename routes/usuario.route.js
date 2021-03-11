@@ -9,6 +9,7 @@ router.post('/registrar-usuario', (req, res) => {
         nacimiento: obj_usuario.nacimiento,
         correo: obj_usuario.correo,
         genero: obj_usuario.genero,
+        tipo: obj_usuario.tipo,
         contrasenna: obj_usuario.contrasenna
     });
     /*
@@ -68,7 +69,6 @@ router.put('/modificar-usuario', (req, res) => {
         $set: {
             nombre_completo: obj.nombre_completo,
             nacimiento: obj.nacimiento,
-            correo: obj.correo,
             genero: obj.genero,
             tipo: obj.tipo,
             contraseña: obj.contraseña
