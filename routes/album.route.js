@@ -90,13 +90,14 @@ router.put('/modificar-album', (req, res) => {
     });
 
 });
-router.put('/agregar-cancion', (req, res) => {
+
+router.post('/agregar-cancion', (req, res) => {
     let obj = JSON.parse(req.body.obj)
     Album.updateOne({ _id: obj._id }, {
         $push: {
             'lista_canciones': {
                 nombre: obj.nombre,
-                duracion: obj.duracion
+                descripcion: obj.duracion
             }
         }
     }, (err, info) => {
