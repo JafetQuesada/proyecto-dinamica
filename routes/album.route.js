@@ -90,6 +90,29 @@ router.put('/modificar-album', (req, res) => {
     });
 
 });
+router.put('/agregar-cancion', (req, res) => {
+    let obj = JSON.parse(req.body.obj)
+    Album.updateOne({ _id: obj._id }, {
+        $push: {
+            'lista_canciones': {
+                nombre: obj.nombre,
+                duracion: obj.duracion
+            }
+        }
+    }, (err, info) => {
+        if (err) {
+            res.json({
+                msj: 'No se pudo modificar el album',
+                err
+            });
+        } else {
+            res.json({
+                info
+            });
+        }
+    });
+
+});
 
 
 module.exports = router;

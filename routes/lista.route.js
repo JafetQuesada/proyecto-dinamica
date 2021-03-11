@@ -28,11 +28,17 @@ router.post('/registrar-lista', (req, res) => {
         }
     });
 });
-router.get('/listar-rutinas', (req, res) => {
-    Rutina.find().populate('ejercicios').exec((err, lista) => {
+router.get('/listar-lista', (req, res) => {
+    Lista.find().populate({
+        path: 'lista_canciones',
+        populate: {
+            path: 'artista',
+            model: 'Artista'
+        }
+    }).exec((err, lista) => {
         if (err) {
             res.json({
-                msj: 'Las rutinas no se pudieron listar',
+                msj: 'No se encontraron albums',
                 err
             });
         } else {
@@ -41,19 +47,19 @@ router.get('/listar-rutinas', (req, res) => {
             });
         }
     });
+
 });
-router.put('eliminar-ejercicio-rutina', (req, res) => {
-    // Recibe el _id de la rutina, y la lista de _ids de los ejercicios a eliminar
-    let ejercicios_eliminar = JSON.parse(req.body.ejercicios);
-    Rutina.findById(req.body._id, (err, rutina) => {
+router.put('eliminar-cancion-lista', (req, res) => {
+    let canciones_eliminar = JSON.parse(req.body.lista_canciones);
+    Lista.findById(req.body._id, (err, lista) => {
         if (err) {
             res.json({
-                msj: 'La rutina no se encontró',
+                msj: 'La lista no se encontró',
                 err
             });
         } else {
-            ejercicios_eliminar.forEach(ejercicio => {
-                rutina.ejercicios.pull(ejercicio)
+            canciones_eliminar.forEach(cancion => {
+                lista.lista_canciones.pull(cancion)
             });
             rutina.save((err, rutina) => {
                 if (err) {
