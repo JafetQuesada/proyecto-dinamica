@@ -9,6 +9,7 @@ const schema_album = mongoose.Schema({
     duracion: { type: Number, required: true, unique: false },
     lista_canciones: [{
         type: mongoose.Schema.Types.ObjectId,
+        unique: true,
         ref: 'Cancion'
     }]
 });
