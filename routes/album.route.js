@@ -26,7 +26,19 @@ router.post('/registrar-album', (req, res) => {
                     $set: {
                         album: obj_album.nombre
                     }
-                })
+                }, (err, info) => {
+                    if (err) {
+                        res.json({
+                            msj: 'No se pudo modificar el album',
+                            err
+                        });
+                    } else {
+
+                        res.json({
+                            info
+                        });
+                    }
+                });
             });
             res.json({
                 mjs: 'El album  se registro correctamente',
