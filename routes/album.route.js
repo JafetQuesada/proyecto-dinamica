@@ -21,7 +21,13 @@ router.post('/registrar-album', (req, res) => {
                 err
             });
         } else {
-            Cancion.updateMany({ album: album.nombre })
+            obj_album.lista_canciones.forEach(cancion => {
+                Cancion.updateOne({ _id: cancion._id }, {
+                    $set: {
+                        album: obj_album.nombre
+                    }
+                })
+            });
             res.json({
                 mjs: 'El album  se registro correctamente',
                 album
@@ -84,6 +90,7 @@ router.put('/modificar-album', (req, res) => {
                 err
             });
         } else {
+
             res.json({
                 info
             });
