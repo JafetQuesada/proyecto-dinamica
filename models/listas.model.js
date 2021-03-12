@@ -5,7 +5,6 @@ const schema_listas = mongoose.Schema({
     nombre: { type: String, required: true, unique: false },
     lista_canciones: [{
         type: mongoose.Schema.Types.ObjectId,
-        unique: true,
         ref: 'Cancion'
     }]
 });

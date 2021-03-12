@@ -7,7 +7,6 @@ const schema_cancion = mongoose.Schema({
     album: { type: String, required: false, unique: false },
     artista: [{
         type: mongoose.Schema.Types.ObjectId,
-        unique: true,
         ref: 'Artista'
     }]
 });
