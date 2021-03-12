@@ -105,7 +105,23 @@ router.put('/modificar-album', (req, res) => {
                 err
             });
         } else {
+            Cancion.updateOne({ _id: cancion._id }, {
+                $set: {
+                    album: obj_album.nombre
+                }
+            }, (err, info) => {
+                if (err) {
+                    res.json({
+                        msj: 'No se pudo modificar el album',
+                        err
+                    });
+                } else {
 
+                    res.json({
+                        info
+                    });
+                }
+            });
             res.json({
                 info
             });
