@@ -12,16 +12,6 @@ router.post('/registrar-usuario', (req, res) => {
         tipo: obj_usuario.tipo,
         contrasenna: obj_usuario.contrasenna
     });
-    if (obj_usuario.lista_listas) {
-        obj_usuario.lista_listas.forEach(lista => {
-            nuevo_usuario.lista_listas.push(lista._id)
-        });
-    }
-    if (obj_usuario.canciones_favortias) {
-        obj_usuario.canciones_favortias.forEach(cancion => {
-            nuevo_usuario.canciones_favortias.push(cancion._id)
-        });
-    }
     nuevo_usuario.save((err, usuario) => {
         if (err) {
             res.json({
@@ -122,6 +112,28 @@ router.post('/iniciar-sesion', (req, res) => {
         }
     });
 
+
+});
+router.post('/agregar-listas', (req, res) => {
+    let obj = JSON.parse(req.body.obj)
+    Usuario.updateOne({ _id: obj._id }, {
+        $push: {
+            'lista_listas': {
+                obj
+            }
+        }
+    }, (err, info) => {
+        if (err) {
+            res.json({
+                msj: 'No se pudo modificar el album',
+                err
+            });
+        } else {
+            res.json({
+                info
+            });
+        }
+    });
 
 });
 module.exports = router;
