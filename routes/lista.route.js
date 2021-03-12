@@ -77,29 +77,6 @@ router.put('eliminar-cancion-lista', (req, res) => {
         }
     });
 });
-router.post('/agregar-cancion', (req, res) => {
-    let obj = JSON.parse(req.body.obj)
-    Album.updateOne({ _id: obj._id }, {
-        $push: {
-            'lista_canciones': {
-                nombre: obj.nombre,
-                descripcion: obj.duracion
-            }
-        }
-    }, (err, info) => {
-        if (err) {
-            res.json({
-                msj: 'No se pudo modificar el album',
-                err
-            });
-        } else {
-            res.json({
-                info
-            });
-        }
-    });
-
-});
 
 
 
