@@ -7,6 +7,7 @@ router.post('/registrar-cancion', (req, res) => {
     let cancion = new Cancion({
         nombre: obj_cancion.nombre,
         duracion: obj_cancion.duracion,
+        album: obj_cancion.album
     });
     obj_cancion.artista.forEach(artisa => {
         cancion.artista.push(artisa._id);
