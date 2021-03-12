@@ -22,6 +22,8 @@ router.post('/registrar-album', (req, res) => {
             });
         } else {
             obj_album.lista_canciones.forEach(cancion => {
+                console.log(cancion._id)
+                console.log(obj_album.nombre)
                 Cancion.updateOne({ _id: cancion._id }, {
                     $set: {
                         album: obj_album.nombre
