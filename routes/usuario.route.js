@@ -104,6 +104,7 @@ router.post('/iniciar-sesion', (req, res) => {
         } else {
             if (usuario && usuario.contrasenna == contrasenna) {
                 res.json({
+                    _id: usuario._id,
                     correo: usuario.correo,
                     tipo: usuario.tipo,
                     nombre: usuario.nombre,
